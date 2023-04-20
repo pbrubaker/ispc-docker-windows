@@ -1,4 +1,4 @@
-# ISPC Windows Docker Build Environment (ver. 0.1.0)
+# ISPC Windows Docker Build Environment (ver. 0.1.1)
 
 ## Building the container
 
@@ -12,18 +12,7 @@ Build command:
 
 Specify `--no-cache` before `-t` to completely rebuild the image.
 
-Where `<command>` can be `setup`, `build`, `clean` or `rebuild`
-
-Substitute `-i` with `-it`, comment out the default command, and swap the comments on entrypoint lines in the `Dockerfile` to open a PowerShell in the container.  The following configuration will give you a shell to issue build commands.
-   
-    #ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass", "-File", "c:\\BuildTools\\command_script.ps1"]
-
-    ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
-
-    # the default command is setup which will initialize the envronment in the C:\\ispc volume.
-    #CMD ["setup"]
-
-If you wish to change any of the build arguments, specify them on teh command file like this.
+If you wish to change any of the build arguments, specify them on the command file like this.
 
     docker build --build-arg GITHUB_URL=https://github.com/ispc/ispc
 
@@ -50,6 +39,17 @@ Make sure to set the appropriate amount of `--memory` for the number of `--cpus`
 Containers used in this fasion are temporary and the `--rm` flag instructs Docker to remove this container after running.
 
 The container `--name` can be whatever you want it to be.
+
+`<command>` can be `setup`, `build`, `clean` or `rebuild`
+
+Substitute `-i` with `-it`, comment out the default command, and swap the comments on entrypoint lines in the `Dockerfile` to open a PowerShell in the container.  The following configuration will give you a shell to issue build commands.
+   
+    #ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass", "-File", "c:\\BuildTools\\command_script.ps1"]
+
+    ENTRYPOINT ["C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
+
+    # the default command is setup which will initialize the envronment in the C:\\ispc volume.
+    #CMD ["setup"]
 
 # Executing build scripts in the container.
 
