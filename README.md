@@ -27,7 +27,7 @@ If you wish to change any of the build arguments, specify them on teh command fi
 
     docker build --build-arg GITHUB_URL=https://github.com/ispc/ispc
 
-Avaialble build time arguments, and their defualt values are:
+Available build time arguments, and their defualt values are:
 
     GITHUB_URL = "https://github.com/ispc/ispc"
     LLVM_VERSION = "14.0"
