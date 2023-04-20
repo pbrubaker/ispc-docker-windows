@@ -20,9 +20,9 @@ Available build time arguments, and their defualt values are:
 
     GITHUB_URL = "https://github.com/ispc/ispc"
     LLVM_VERSION = "14.0"
-    INCLUDE_EXAMPLES = off
-    INCLUDE_TESTS = off
-    INCLUDE_UTILS = off
+    INCLUDE_EXAMPLES = on
+    INCLUDE_TESTS = on
+    INCLUDE_UTILS = on
     TARGET = INSTALL
     CONFIG = Release
 
