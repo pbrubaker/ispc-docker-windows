@@ -69,6 +69,6 @@ Example of building `INSTALL` target with `Release` configuraiton.
 
 This container was developed to make it easier for contributors to get their environment setup, or to build ISPC with specific versions of LLVM.
 
-Created by: Pete Brubaker <pbrubaker@intel.com> - Twitter: [@pbrubaker](https://twitter.com/pbrubaker)
+Created by: Pete Brubaker <first.last at Intel> - Twitter: [@pbrubaker](https://twitter.com/pbrubaker)
 
 MIT License, see the `LICENSE` file in the repo folder.
