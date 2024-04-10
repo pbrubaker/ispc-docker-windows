@@ -42,17 +42,17 @@ ADD https://github.com/msys2/msys2-installer/releases/download/nightly-x86_64/ms
 # Download libgw
 ADD https://github.com/ispc/ispc.dependencies/releases/download/gnuwin32-mirror/libgw32c-0.4-lib.zip C:\\temp\\libgw32c-0.4-lib.zip
 
-# downloat python
-ADD https://www.python.org/ftp/python/3.11.3/python-3.11.3-amd64.exe C:\\temp\\python-3.11.3-amd64.exe
+# download python
+ADD https://www.python.org/ftp/python/3.12.3/python-3.12.3-amd64.exe C:\\temp\\python-3.12.3-amd64.exe
 
 # download git
-ADD https://github.com/git-for-windows/git/releases/download/v2.40.0.windows.1/Git-2.40.0-64-bit.exe C:\\temp\\Git-2.40.0-64-bit.exe
+ADD https://github.com/git-for-windows/git/releases/download/v2.44.0.windows.1/Git-2.44.0-64-bit.exe C:\\temp\\Git-2.44.0-64-bit.exe
 
 # install git
-RUN C:\\temp\\Git-2.40.0-64-bit.exe /VERYSILENT /NORESTART
+RUN C:\\temp\\Git-2.44.0-64-bit.exe /VERYSILENT /NORESTART
 
 # install python
-RUN C:\\temp\\python-3.11.3-amd64.exe /quiet InstallAllUsers=1 PrependPath=1
+RUN C:\\temp\\python-3.12.3-amd64.exe /quiet InstallAllUsers=1 PrependPath=1
 
 # install msys2
 RUN C:\\TEMP\\msys2.exe -y -oC:\\
@@ -83,7 +83,7 @@ RUN function msys() { C:\\msys64\\usr\\bin\\bash.exe @('-lc') + @Args; } \
     msys 'pacman --noconfirm -S msys/m4';
 
 # sleep here to get around a race condition
-RUN Start-Sleep -Seconds 5
+RUN Start-Sleep -Seconds 10
 
 # remove temporary files
 RUN Get-ChildItem -File C:\\temp\\* | Remove-Item

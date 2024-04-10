@@ -14,7 +14,7 @@ Specify `--no-cache` before `-t` to completely rebuild the image.
 
 If you wish to change any of the build arguments, specify them on the command file like this.
 
-    docker build --build-arg GITHUB_URL=https://github.com/ispc/ispc --build-arg LLVM_VERSION=17 -t ispc_windows:latest .
+    docker build --build-arg GITHUB_URL=https://github.com/ispc/ispc --build-arg LLVM_VERSION=17.0 -t ispc_windows:latest .
 
 Available build time arguments, and their defualt values are:
 
