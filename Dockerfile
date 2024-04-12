@@ -55,7 +55,7 @@ RUN C:\\temp\\Git-2.44.0-64-bit.exe /VERYSILENT /NORESTART
 RUN C:\\temp\\python-3.12.3-amd64.exe /quiet InstallAllUsers=1 PrependPath=1
 
 # install msys2
-RUN C:\\TEMP\\msys2.exe -y -oC:\\
+RUN (C:\\TEMP\\msys2.exe -y -oC:\\) -and (Clear-RecycleBin -Force -DriveLetter C)
 
 # Install libgw
 RUN Expand-Archive -LiteralPath C:\\temp\\libgw32c-0.4-lib.zip -DestinationPath C:\\libgw32c
@@ -73,14 +73,14 @@ RUN C:\\TEMP\\vs_buildtools.exe --quiet --wait --norestart --nocache \
 	--add Microsoft.VisualStudio.Component.Windows10SDK.20348 \
     --installPath C:\\BuildTools
 	
-# update msys2 & install packages
+# update msys2 & install packages - M4 is a dependency of flex/bison so no need to install it here
 RUN function msys() { C:\\msys64\\usr\\bin\\bash.exe @('-lc') + @Args; } \
 	msys ' '; \
 	msys 'pacman --noconfirm -Syuu'; \
 	msys 'pacman --noconfirm -Scc'; \
-	msys 'pacman --noconfirm -S msys/bison';\
+	msys 'pacman --noconfirm -S msys/bison'; \
 	msys 'pacman --noconfirm -S msys/flex'; \
-    msys 'pacman --noconfirm -S msys/m4';
+	-and (Clear-RecycleBin -Force -DriveLetter C)
 
 # sleep here to get around a race condition
 RUN Start-Sleep -Seconds 10
