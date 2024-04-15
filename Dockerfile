@@ -80,7 +80,7 @@ RUN function msys() { C:\\msys64\\usr\\bin\\bash.exe @('-lc') + @Args; } \
 	msys 'pacman --noconfirm -Scc'; \
 	msys 'pacman --noconfirm -S msys/bison'; \
 	msys 'pacman --noconfirm -S msys/flex'; \
-	-and (Clear-RecycleBin -Force -DriveLetter C)
+	Clear-RecycleBin -Force -DriveLetter C
 
 # sleep here to get around a race condition
 RUN Start-Sleep -Seconds 10
