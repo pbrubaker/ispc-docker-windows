@@ -1,4 +1,4 @@
-# ISPC Windows Docker Build Environment (ver. 0.1.1)
+# ISPC Windows Docker Build Environment (ver. 0.2.0)
 
 ## Building the container
 
