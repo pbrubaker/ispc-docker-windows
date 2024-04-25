@@ -1,7 +1,7 @@
 #
 # Released under MIT License
 #
-# Copyright (c) 2023 Pete Brubaker
+# Copyright (c) 2023-2024 Pete Brubaker
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of
 # this software and associated documentation files (the “Software”), to deal in
@@ -40,7 +40,7 @@ function setup()
 	mkdir $Env:LLVM_HOME > $null
 	
 	# clone ISPC
-	git clone --recurse-submodules https://github.com/ispc/ispc $Env:ISPC_HOME
+	git clone --recurse-submodules $Env:ISPC_URL $Env:ISPC_HOME
 	
 	# call alloy.py to pull, patch and build llvm
 	cd $Env:ISPC_HOME
